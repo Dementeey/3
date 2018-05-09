@@ -4,7 +4,7 @@
 //
 //
 //
-//  edited for the project
+//  edited for this project
 //
 //
 //
@@ -37,7 +37,7 @@ const path = {
   src: {                                    // Пути откуда брать исходники
     html: 'src/*.html',                     // Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
     js: 'src/js/index.js',                  // В стилях и скриптах нам понадобятся только main файлы
-    style: 'src/css/index.css',
+    style: 'src/css/*.css',
     fonts: 'src/fonts/**/*.*',
     img: 'src/img/**/*.+(png|jpg)',      // Синтаксис img/**/*.* означает - взять все файлы всех расширений
     svg: 'src/img/**/*.svg',             // Синтаксис img/**/*.* означает - взять все файлы всех расширений
@@ -46,10 +46,10 @@ const path = {
   watch: {                                  // Тут мы укажем, за изменением каких файлов мы хотим наблюдать
     html: 'src/**/*.html',
     js: 'src/**/*.js',
-    style: 'src/**/*.sass',
+    style: 'src/css/*.css',
     fonts: 'src/fonts/**/*.*',
-    img: 'src/**/*.+(png|jpg)',
-    svg: 'src/**/*.svg',
+    img: 'src/img/*.+(png|jpg)',
+    svg: 'src/img/*.svg',
     video: 'src/video/*.+(mp4|mov)'
   },
   clean: './build'
