@@ -134,6 +134,7 @@ body{
   min-width: 235px;
   opacity: 0.8;
   font:inherit;
+  font-size: 1em;
   text-transform: uppercase;
   letter-spacing: 4px;
   color: inherit;
@@ -143,7 +144,7 @@ body{
   width: 283px;
   height: 85px;
   background: #000  url("../img/google-play-badge.jpg") no-repeat center center;
-  background-size: 290px 95px;
+  background-size: 103% 108%;
   border-radius: 8px;
   overflow: hidden;
 
@@ -183,23 +184,45 @@ body{
     height: 100vh;
     text-align: center;
   }
-  .page-header__title {
-    font-size: 4.267em;
-  }
   .second-wrap{
     display: none;
+  }
+  .google-play-btn {
+    width: 70vw;
+    height: 11vh;
+    max-height: 85px;
+    max-width: 283px;
+
   }
 }
 @media(max-width: 380px) {
   .page-nav {
     flex-direction: column;
+    align-items: center;
+    width: 80%;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
   }
   .page-nav__link {
-    font-size: 1.3em;
     margin: 0;
     margin-bottom: 15px;
     right: 50%;
     width: 80%;
+  }
+  .page-header__title {
+    font-size: 2.5em;
+  }
+  .page-header__sub-title {
+    font-size: 0.9em;
+  }
+  .google-play-btn:hover {
+    box-shadow: unset;
+  }
+  .google-play-btn:active {
+    box-shadow: 0 2px 2px 5px rgba(0,0,0, .3);
+    cursor: pointer;
   }
 }
 
