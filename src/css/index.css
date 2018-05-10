@@ -9,13 +9,16 @@ body{
   font-style: normal;
   font-size: 18px;
   font-weight: 300;
-  max-width: 1440px;
+  /*max-width: 1440px;*/
 }
 
 .container {
   width: 90%;
   padding: 0 5%;
 }
+
+
+/* header start */
 
 .first-wrap,
 .second-wrap {
@@ -31,8 +34,19 @@ body{
   height: 100vh;
   max-height: 900px;
   color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
 }
-
+.page-header::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  background: url("../img/circle.svg") no-repeat top left;
+  transform: rotate(90deg);
+}
 
 .page-header__inner {
   display: flex;
@@ -46,24 +60,26 @@ body{
 }
 
 .page-nav {
+  display: flex;
+  flex-direction: row;
   position: absolute;
   top: 60px;
   right: 15%;
 }
 
-.page-nav-link {
+.page-nav__link {
   color: inherit;
   font-size: 1em;
   margin-right: 95px;
   text-decoration: none;
 
 }
-.page-nav-link:hover {
+.page-nav__link:hover {
   text-decoration: underline;
   color: aqua;
 }
 
-.page-nav-link:nth-child(2) {
+.page-nav__link:nth-child(2) {
   margin: 0;
 }
 
@@ -78,6 +94,10 @@ body{
   overflow: hidden;
 }
 
+.mobil__border {
+  width: 100%;
+}
+
 .page-header,
 .mobil__bg-cover {
   background-image: linear-gradient(135deg, #2e1290 0%, #f500a6 100%);
@@ -86,8 +106,8 @@ body{
 .mobil__bg-cover {
   position: absolute;
   top: 115px;
-  left: 30px;
-  width: 405px;
+  left: 6%;
+  width: 88%;
   height: 100vh;
   border-radius: 3px;
 }
@@ -103,7 +123,7 @@ body{
 }
 
 .page-header__title {
-  min-width: 439px;
+  max-width: 439px;
   min-height: 168px;
   font: inherit;
   font-size: 3.667em;
@@ -132,3 +152,57 @@ body{
   box-shadow: 0 2px 2px 5px rgba(0,0,0, .3);
   cursor: pointer;
 }
+
+/*--------- @media ---------*/
+@media(max-width: 1150px) {
+  .container {
+    width: 100%;
+  }
+  .second-wrap {
+    align-items: flex-end;
+  }
+  .mobil__border {
+    height: 100vh;
+  }
+  .mobil__bg-cover {
+    top: 18%;
+  }
+}
+@media(max-width: 769px) {
+  .mobil {
+    height: 80%;
+  }
+  .second-wrap {
+    justify-content: flex-end;
+  }
+}
+@media(max-width: 701px) {
+  .first-wrap {
+    width: 100%;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
+  .page-header__title {
+    font-size: 4.267em;
+  }
+  .second-wrap{
+    display: none;
+  }
+}
+@media(max-width: 380px) {
+  .page-nav {
+    flex-direction: column;
+  }
+  .page-nav__link {
+    font-size: 1.3em;
+    margin: 0;
+    margin-bottom: 15px;
+    right: 50%;
+    width: 80%;
+  }
+}
+
+
+
+/* Header end */
