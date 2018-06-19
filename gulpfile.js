@@ -23,6 +23,7 @@ const reload = browserSync.reload;
 const rimraf = require('rimraf');
 const svgmin = require('gulp-svgmin');
 const imageminJpegoptim = require('imagemin-jpegoptim');
+const babel = require('gulp-babel');
 
 const path = {
   build: {                                  // Тут мы укажем куда складывать готовые после сборки файлы
@@ -35,33 +36,36 @@ const path = {
     video: 'build/video/'
   },
   src: {                                    // Пути откуда брать исходники
-    html: 'src/*.html',                     // Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
-    js: 'src/js/index.js',                  // В стилях и скриптах нам понадобятся только main файлы
+    html: 'src/**/*.html',                  // Синтаксис src/**/*.html говорит gulp что мы хотим взять все файлы с расширением .html из всех папок после src
+    js: 'src/js/*.js',
     style: 'src/css/*.css',
     fonts: 'src/fonts/**/*.*',
-    img: 'src/img/**/*.+(png|jpg)',      // Синтаксис img/**/*.* означает - взять все файлы всех расширений
-    svg: 'src/img/**/*.svg',             // Синтаксис img/**/*.* означает - взять все файлы всех расширений
-    video: 'src/video/*.+(mp4|mov)'                                // из папки и из вложенных каталогов
+    img: 'src/img/**/*.+(png|jpg)',         // Синтаксис img/**/*.* означает - взять все файлы всех расширений
+    svg: 'src/img/**/*.svg',                // Синтаксис img/**/*.* означает - взять все файлы всех расширений
+    video: 'src/video/*.+(mp4|mov|webm)'         // из папки и из вложенных каталогов
   },
   watch: {                                  // Тут мы укажем, за изменением каких файлов мы хотим наблюдать
     html: 'src/**/*.html',
     js: 'src/**/*.js',
     style: 'src/css/*.css',
     fonts: 'src/fonts/**/*.*',
-    img: 'src/img/*.+(png|jpg)',
-    svg: 'src/img/*.svg',
-    video: 'src/video/*.+(mp4|mov)'
+    img: 'src/img/**/*.+(png|jpg)',
+    svg: 'src/img/**/*.svg',
+    video: 'src/video/*.+(mp4|mov|webm)'
   },
   clean: './build'
 };
+
+
+
 const configServer = {
   server: {
     baseDir: "./build"
   },
-  tunnel: true,
+  tunnel: false,   // ВКЛ\ВЫКЛ  временный адрес для просмотра вне локальной сети
   host: 'localhost',
   port: 9000,
-  logPrefix: "Frontend_Devil"
+  logPrefix: "FrontendDevil"
 };
 
 gulp.task('locale', function () {           // Web server port: 9000
@@ -79,15 +83,17 @@ gulp.task('html:build', function () {
 });
 
 gulp.task('js:build', function () {
-  return gulp.src(path.src.js)              // Найдем наш main файл
-    .pipe(uglify())                         // Сожмем наш js
-    .pipe(gulp.dest(path.build.js))         // Выплюнем готовый файл в build
-    .pipe(reload({stream: true}));          // И перезагрузим сервер
+  return gulp.src(path.src.js)
+    .pipe(babel({
+        presets: ['env']
+    }))
+    .pipe(uglify())
+    .pipe(gulp.dest(path.build.js))
+    .pipe(reload({stream: true}));
 });
 
 gulp.task('style:build', function () {
-  return gulp.src(path.src.style)           // Выберем наш main.scss
-    // .pipe(sass())                           // Скомпилируем
+  return gulp.src(path.src.style)
     .pipe(prefixer())                       // Добавим вендорные префиксы
     .pipe(cssmin())                         // Сожмем
     .pipe(gulp.dest(path.build.css))        // И в build

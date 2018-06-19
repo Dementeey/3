@@ -1,0 +1,125 @@
+.sprite {
+    background-image: url(spritesheet.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.sprite-1 {
+    width: 23px;
+    height: 38px;
+    background-position: -50px -50px;
+}
+
+.sprite-10 {
+    width: 123px;
+    height: 123px;
+    background-position: -50px -188px;
+}
+
+.sprite-11 {
+    width: 80px;
+    height: 77px;
+    background-position: -50px -411px;
+}
+
+.sprite-12 {
+    width: 97px;
+    height: 97px;
+    background-position: -50px -588px;
+}
+
+.sprite-13 {
+    width: 57px;
+    height: 57px;
+    background-position: -50px -785px;
+}
+
+.sprite-14 {
+    width: 102px;
+    height: 112px;
+    background-position: -50px -942px;
+}
+
+.sprite-15 {
+    width: 106px;
+    height: 106px;
+    background-position: -50px -1154px;
+}
+
+.sprite-16 {
+    width: 81px;
+    height: 103px;
+    background-position: -50px -1360px;
+}
+
+.sprite-17 {
+    width: 139px;
+    height: 99px;
+    background-position: -50px -1563px;
+}
+
+.sprite-18 {
+    width: 20px;
+    height: 16px;
+    background-position: -50px -1762px;
+}
+
+.sprite-19 {
+    width: 19px;
+    height: 20px;
+    background-position: -50px -1878px;
+}
+
+.sprite-2 {
+    width: 37px;
+    height: 48px;
+    background-position: -50px -1998px;
+}
+
+.sprite-20 {
+    width: 11px;
+    height: 21px;
+    background-position: -50px -2146px;
+}
+
+.sprite-3 {
+    width: 31px;
+    height: 25px;
+    background-position: -50px -2267px;
+}
+
+.sprite-4 {
+    width: 117px;
+    height: 123px;
+    background-position: -50px -2392px;
+}
+
+.sprite-5 {
+    width: 90px;
+    height: 131px;
+    background-position: -50px -2615px;
+}
+
+.sprite-6 {
+    width: 148px;
+    height: 77px;
+    background-position: -50px -2846px;
+}
+
+.sprite-7 {
+    width: 121px;
+    height: 123px;
+    background-position: -50px -3023px;
+}
+
+.sprite-8 {
+    width: 116px;
+    height: 123px;
+    background-position: -50px -3246px;
+}
+
+.sprite-9 {
+    width: 101px;
+    height: 131px;
+    background-position: -50px -3469px;
+}
